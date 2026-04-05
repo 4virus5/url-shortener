@@ -22,7 +22,7 @@ const shortenUrl = async (req,res)=>{
 
         res.status(201).json({
             message:"Short Url created Successfully",
-            shortUrl:`http://localhost:3000/${shortUrl}`
+            shortUrl:`${process.env.BASE_URL || 'http://localhost:3000'}/${shortUrl}`
         })
     }catch(error){
         res.status(500).json({
