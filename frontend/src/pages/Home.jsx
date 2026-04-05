@@ -8,7 +8,7 @@ export const Home = ()=>{
     const fetchStats = async ()=>{
         try{
             const code = shortUrl.split('/').pop()
-            const response = await fetch(`http://localhost:3000/api/stats/${code}`)
+            const response = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/stats/${code}`)
             const data = await response.json()
             setStats(data)
         }catch(error){
@@ -20,7 +20,7 @@ export const Home = ()=>{
     const shortneUrl = async ()=>{
         try{    
             const respone = await fetch(
-                "http://localhost:3000/api/url/shorten",
+                `${import.meta.env.VITE_API_URL || ''}/api/url/shorten`,
                 {
                     method:'POST',
                     headers:{

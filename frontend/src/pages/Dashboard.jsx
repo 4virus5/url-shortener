@@ -32,7 +32,7 @@ export default function Dashboard() {
   const fetchStats = async () => {
     try {
       setLoading(true);
-      const res = await fetch("http://localhost:3000/api/dashboard/stats", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/dashboard/stats`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -64,7 +64,7 @@ export default function Dashboard() {
     setError("");
     
     try {
-      const res = await fetch("http://localhost:3000/api/url/shorten", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/url/shorten`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
